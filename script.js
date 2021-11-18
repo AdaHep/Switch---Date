@@ -16,10 +16,37 @@ function startClock() {
 /** Updates the page with current time */
 
 function renderClock() {
-    const h2 = document.getElementById('time');
     const date = new Date ();
-    h2.innerHTML = getCurrentTimeString (date);
+
+    const timeElement = document.getElementById('time');
+    timeElement.innerHTML = getCurrentTimeString (date);
+
+    const weekdayElement = document.getElementById('weekday');
+    weekdayElement.innerText = getWeekday (date);
 }
+
+/**
+ * Takes a date and return current weekday in swedish. 
+ * @param {Date} date 
+ * @returns {String}
+ */
+
+function getWeekday (date) {
+    const weekday = date.getDay();
+    switch (weekday){
+        case 0: return 'Söndag'
+        case 1: return 'Måndag'
+        case 2: return 'Tisdag'
+        case 3: return 'Onsdag'
+        case 4: return 'Torsdag'
+        case 5: return 'Fredag'
+        case 6: return 'Lördag'
+    }
+
+
+}
+
+
 /**
  * Constructs the time string from a date, includes seconds
  * @param {Date} date 
