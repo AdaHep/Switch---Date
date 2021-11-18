@@ -9,6 +9,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     
     background:lightblue
+}
+
+h2 {
+    margin: 0.1rem;
 }
