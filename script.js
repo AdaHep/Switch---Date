@@ -18,20 +18,21 @@ function startClock() {
 function renderClock() {
     const h2 = document.getElementById('time');
     const date = new Date ();
+    h2.innerHTML = getCurrentTimeString (date);
+}
+/**
+ * Constructs the time string from a date, includes seconds
+ * @param {Date} date 
+ * @returns {String} in format hh:mm:ss
+ */
+function getCurrentTimeString (date) {
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
 
-    if (hours <10) {
-        hours = "0" + hours;
-    }
-    if (minutes <10) {
-        minutes = "0" + minutes;
-    }
-    if (seconds <10) {
-        seconds = "0" + seconds;
-    }
+    if (hours <10) {hours = "0" + hours;}
+    if (minutes <10) {minutes = "0" + minutes;}
+    if (seconds <10) {seconds = "0" + seconds;}
 
-    h2.innerHTML = hours + ":" + minutes + ":" + seconds;
-
+    return hours + ":" + minutes + ":" + seconds;
 }
